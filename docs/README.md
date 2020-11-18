@@ -2,7 +2,7 @@
 
 ## What is Slicing
 
-Up to this point we have been using the built in `Map` type for holding our data and Decision Variables. One of the challenges we will quickly run into when modeling optimization problems is that it is common to operate on subsets of values, often referred to as slices. For these reasons it is common to use N-dimensional Arrays so that you can take slices across different dimensions. Just using the built-in F# `Array` type has limitations though since you can only index the values with an `int`. What we really want is something that allows us to look up a value using an arbitrary index type but also allows us to select ranges of values.
+I have often run into situations where I want to slice multi-dimensional data along several dimensions. Just using the built-in F# `Array` type has limitations though since you can only index the values with an `int`. What we really want is something that allows us to look up a value using an arbitrary index type but also allows us to select ranges of values.
 
 So, we need something that has `Map` like lookup but also allows us to slice across different dimensions...? I know, let us create a new type, a `SliceMap`!
 

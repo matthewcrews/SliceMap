@@ -5,6 +5,8 @@
     <Version>0.0.1</Version>
     <PackageProjectUrl>http://matthewcrews.com/SliceMap/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/matthewcrews/SliceMap</RepositoryUrl>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
