@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.0.1</Version>
+    <PackageProjectUrl>http://matthewcrews.com/SliceMap/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/matthewcrews/SliceMap</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <NoWarn>0052;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
