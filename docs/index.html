@@ -1,0 +1,37 @@
+﻿<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Flips</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+        new Docute({
+            detectSystemDarkTheme: true,
+            darkThemeToggler: true,
+            imageZoom: true,
+            layout: "wide",
+            target: '#root',
+            highlight: ["fsharp", "bash", "powershell", "json"],
+            cssVariables: {
+                accentColor: "hsl(171, 100%, 41%)",
+                sidebarWidth: "300px",
+                sidebarLinkActiveColor: "hsl(171, 100%, 41%)",
+                sidebarLinkArrowColor: "hsl(171, 100%, 41%)"
+            },
+            nav: [
+                { title: "GitHub Repository", link: "https://github.com/matthewcrews/SliceMap" }
+            ],
+            sidebar: [
+                { title: 'Index', link: '/' },
+                { title: 'Release Notes', link: '/RELEASE_NOTES' }
+            ]
+        })
+    </script>
+  </body>
+</html>
