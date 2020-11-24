@@ -1,4 +1,4 @@
-﻿namespace Flips.SliceMap
+﻿namespace SliceMap
 
 open System.Collections.Generic
 
