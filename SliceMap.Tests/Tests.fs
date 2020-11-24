@@ -24,7 +24,7 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SlicetSetTests =
-        open Flips.SliceMap
+        open SliceMap
 
 
         [<Property>]
@@ -204,7 +204,7 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SliceMapTests =
-        open Flips.SliceMap
+        open SliceMap
 
         [<Property>]
         let ``SliceMap addition is commutative`` (v1:List<(NonEmptyString * Scalar)>) (v2:List<(NonEmptyString * Scalar)>) =
@@ -323,7 +323,7 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SliceMap2Tests =
-        open Flips.SliceMap
+        open SliceMap
 
         [<Property>]
         let ``SMap2 addition is commutative`` (v1:List<((NonEmptyString * NonEmptyString) * Scalar)>) (v2:List<((NonEmptyString * NonEmptyString) * Scalar)>) =
@@ -470,7 +470,7 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SliceMap3Tests =
-        open Flips.SliceMap
+        open SliceMap
 
         [<Property>]
         let ``SMap3 addition is commutative`` (v1:List<((NonEmptyString * NonEmptyString * NonEmptyString) * Scalar)>) (v2:List<((NonEmptyString * NonEmptyString * NonEmptyString) * Scalar)>) =
@@ -715,7 +715,7 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SliceMap4Tests =
-        open Flips.SliceMap
+        open SliceMap
 
         [<Property>]
         let ``SMap4 addition is commutative`` (v1:List<((NonEmptyString * NonEmptyString * NonEmptyString * NonEmptyString) * Scalar)>) (v2:List<((NonEmptyString * NonEmptyString * NonEmptyString * NonEmptyString) * Scalar)>) =
@@ -1116,7 +1116,7 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SliceMap5Tests =
-        open Flips.SliceMap
+        open SliceMap
 
         [<Property>]
         let ``SMap5 addition is commutative`` 

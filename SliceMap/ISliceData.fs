@@ -1,4 +1,4 @@
-﻿namespace Flips.SliceMap
+﻿namespace SliceMap
 
 
 type ISliceData<'Key, 'Value when 'Key : comparison and 'Value : equality> =

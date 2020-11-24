@@ -1,4 +1,4 @@
-﻿namespace Flips.SliceMap
+﻿namespace SliceMap
 
 module Seq =
 
