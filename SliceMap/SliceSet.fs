@@ -354,3 +354,23 @@ module SliceSet =
         | In set -> keys.Intersect (SliceSet set)
         | NotIn set -> keys.Minus (SliceSet set)
         | Where f -> keys.Filter f
+
+#if USE_LEGACY_NAMESPACE
+namespace Flips.SliceMap
+open System
+[<Obsolete("Use types in SliceMap namespace instead of Flips.SliceMap")>]
+type SliceType<'a when 'a : comparison> = SliceMap.SliceType<'a>
+[<Obsolete("Use types in SliceMap namespace instead of Flips.SliceMap");RequireQualifiedAccess>]
+type RankResult = SliceMap.RankResult
+[<Obsolete("Use types in SliceMap namespace instead of Flips.SliceMap")>]
+type SliceSet<'T when 'T : comparison> = SliceMap.SliceSet<'T>
+
+[<Obsolete("Use modules in SliceMap namespace instead of Flips.SliceMap")>]
+[<RequireQualifiedAccess>]
+module SliceSet =
+    let intersect = SliceMap.SliceSet.intersect
+    let toSeq = SliceMap.SliceSet.toSeq
+    let toList = SliceMap.SliceSet.toList
+    let union = SliceMap.SliceSet.union
+    let slice = SliceMap.SliceSet.slice
+#endif

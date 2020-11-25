@@ -24,8 +24,11 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SlicetSetTests =
+        #if USE_LEGACY_NAMESPACE
+        open Flips.SliceMap
+        #else
         open SliceMap
-
+        #endif
 
         [<Property>]
         let ``SliceSet has only distinct values`` (v:List<NonEmptyString>) =
@@ -204,7 +207,11 @@ module Types =
 
     [<Properties(Arbitrary = [| typeof<Types> |] )>]
     module SliceMapTests =
+        #if USE_LEGACY_NAMESPACE
+        open Flips.SliceMap
+        #else
         open SliceMap
+        #endif
 
         [<Property>]
         let ``SliceMap addition is commutative`` (v1:List<(NonEmptyString * Scalar)>) (v2:List<(NonEmptyString * Scalar)>) =
@@ -293,8 +300,15 @@ module Types =
             (x1:NonEmptyString) =
 
             let sm = d |> SMap
+            #if USE_LEGACY_NAMESPACE
+            // todo: see https://github.com/dotnet/fsharp/issues/10544
+            // maybe there is a workaround?
+            let r = sm.[Flips.SliceMap.SliceType.GreaterOrEqual x1]
+            // original code was: 
+            // let r = sm.[GreaterOrEqual x1]
+            #else
             let r = sm.[GreaterOrEqual x1]
-
+            #endif
             for (k1) in r.Keys do
                 Assert.True(k1 >= x1)
 
