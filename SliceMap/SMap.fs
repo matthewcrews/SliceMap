@@ -207,3 +207,25 @@ module SMap =
 
     let containsKey k (m:SMap<_,_>) =
         m.ContainsKey k
+
+#if USE_LEGACY_NAMESPACE
+namespace Flips.SliceMap
+open System
+[<Obsolete("Use types in SliceMap namespace instead of Flips.SliceMap")>]
+type SMap<'Key, 'Value when 'Key : comparison and 'Value : equality> = SliceMap.SMap<'Key,'Value>
+
+[<Obsolete("Use modules in SliceMap namespace instead of Flips.SliceMap")>]
+[<RequireQualifiedAccess>]
+module SMap =
+    
+    let ofSeq = SliceMap.SMap.ofSeq
+    let toSeq = SliceMap.SMap.toSeq
+
+    let ofMap = SliceMap.SMap.ofMap
+    let toMap = SliceMap.SMap.toMap
+    let ofList = SliceMap.SMap.ofList
+    let toList = SliceMap.SMap.toList
+    let ofArray = SliceMap.SMap.ofArray
+    let toArray = SliceMap.SMap.toArray
+    let containsKey = SliceMap.SMap.containsKey
+#endif

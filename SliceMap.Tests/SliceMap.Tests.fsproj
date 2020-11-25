@@ -5,6 +5,7 @@
 
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
+    <DefineConstants>$(DefineConstants);USE_LEGACY_NAMESPACE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
