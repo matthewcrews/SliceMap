@@ -23,6 +23,31 @@ type RankResult =
     | Closest of int
     | Empty
 
+#if FABLE_COMPILER
+type Memory<'T>(data: 'T array, offset: int, length: int) =
+    let length = length
+    member x.Span =
+        if offset = 0 && length = data.Length then 
+            data
+        else
+            // very very bad, this copies...
+            data[offset .. length - 1]
+            
+    member x.Length = length
+    //#if FABLE_COMPILER_PYTHON
+        
+    //#else
+        
+    //#endif
+    member x.Slice(startIndex)            = Memory(data, offset + startIndex, length - startIndex) 
+    member x.Slice(startIndex, newLength) = Memory(data, offset + startIndex, newLength)
+[<AutoOpen>]
+module internal Extensions =   
+    type 'T ``[]`` with
+        member x.AsMemory() = Memory(x, 0, x.Length)
+        member x.AsMemory(startIndex, length) = Memory(x, startIndex, length)
+#endif
+
 [<NoComparison>]
 type SliceSet<[<EqualityConditionalOn>]'T when 'T : comparison>(comparer:IComparer<'T>, values:Memory<'T>) =
     let comparer = comparer
@@ -74,7 +99,7 @@ type SliceSet<[<EqualityConditionalOn>]'T when 'T : comparison>(comparer:ICompar
     new(values:seq<'T>) =
         let comparer = LanguagePrimitives.FastGenericComparer<'T>
         let v = values |> Seq.distinct |> Seq.toArray |> Array.sort
-        SliceSet(comparer, v.AsMemory<'T>())
+        SliceSet(comparer, v.AsMemory())
 
     member _.Item
         with get (idx) =
